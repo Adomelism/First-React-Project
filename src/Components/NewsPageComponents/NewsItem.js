@@ -1,5 +1,6 @@
 
-const NewsItem = ({url, imgSrc, imgAlt, category, title, date}) => {
+const NewsItem = (props) => {
+    let {url, imgSrc, imgAlt, category, title, date} = props.data;
 
     if (!title || !url) {
         return '';
