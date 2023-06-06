@@ -3,6 +3,7 @@ import { Routes, Route, Link, NavLink } from 'react-router-dom';
 import ContactUs from './Pages//ContactUsPage/ContactUs';
 import Programos from './Pages/Programos/Programos';
 import NewsPage from './Pages/NewsPage/NewsPage';
+import CounterPage from './Pages/CounterPage/CounterPage';
 
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
           <li className='nav-item'>
             <NavLink to='/NewsPage' className='nav-link'>Naujienos</NavLink>
           </li>
+
+          <li className='nav-item'>
+            <NavLink to='/CounterPage' className='nav-link'>Counter</NavLink>
+          </li>
         </ul>
       </nav>
       
@@ -33,6 +38,7 @@ function App() {
             <Route path='/ContactUs' element={<ContactUs />} />
             <Route path='/Programos' element={<Programos />} />
             <Route path='/NewsPage' element={<NewsPage />} />
+            <Route path='/CounterPage' element={<CounterPage />} />
             <Route path='/' element={ 
               <div>
                 <h1>HomePage</h1>
