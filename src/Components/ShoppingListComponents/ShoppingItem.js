@@ -1,7 +1,7 @@
 
-const ShoppingItem = () => {
+const ShoppingItem = ({data}) => {
   return (
-    <li>Title: {} </li>
+    <li className={data.done ? 'done' : ''}>{data.title}</li>
   )
 }
 

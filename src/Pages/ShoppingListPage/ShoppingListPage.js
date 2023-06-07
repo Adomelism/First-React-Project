@@ -28,21 +28,33 @@ const ShoppingListPage = () => {
         },
      ];
 
-     const [list, setList] = useState(itemsListData)
-    //  console.log(setList)
+    const [list, setList] = useState(itemsListData)
+    const [newItem, setNewItem] = useState('')
+
+    const shoppingListSection = list && list.length > 0 ? (
+        <ul>
+            {list.map((item, index) => <ShoppingItem key={index} data={item} />)}
+        </ul>  
+    ) : (
+        <h3>Your shopping list is empty.</h3>
+    )
+
+    const newItemHandler = (event) => {
+        event.preventDefault();
+        setNewItem('');
+    }
+
+    const itemInputHandler = (event) => setNewItem(event.target.value);
 
 
   return (
     <Container>
-        {list && list.length > 0 ? (
-            <ul>
-                {list.map((item, index) => <li className={item.done ? 'done' : ''} 
-                key={index}>{item.title}</li>)}
-            </ul>  
-        ) : (
-            <h3>Your shopping list is empty.</h3>
-        )}
-    
+        <form onSubmit={newItemHandler}>
+            <label htmlFor='shopping-item'>New Item: </label>
+            <input type='text' id='shopping-item' name='shopping-item' value={newItem} onChange={itemInputHandler} />
+            <input type='submit' value='Create' />
+        </form>
+        {shoppingListSection}
     </Container>
   )
 }
