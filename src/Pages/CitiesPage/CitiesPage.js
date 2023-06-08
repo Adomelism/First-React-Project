@@ -2,6 +2,7 @@ import './CitiesPage.css';
 import { useState } from 'react';
 import CityItem from '../../Components/CitiesComponents/CityItem';
 import Container from '../../Components/Container/Container';
+import AddCityForm from '../../Components/CitiesComponents/AddCityForm';
 
 const CitiesPage = () => {
 
@@ -107,6 +108,10 @@ console.log(cities.length)
 
   return (
 <Container>
+<div>
+    <AddCityForm></AddCityForm>
+</div>
+
     <div className={'cities-list' + oddCitiesClass}>
     {cities.map((city, index) => {
         return <CityItem key={index} city={city} />
