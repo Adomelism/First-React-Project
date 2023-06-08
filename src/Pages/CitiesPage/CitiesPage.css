@@ -10,6 +10,7 @@
     padding: 20px;
 }
 
-.odd-cities .city-item:last-child {
+.odd-cities .cities-item:last-child {
     width: 100%;
 }
+

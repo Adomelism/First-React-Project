@@ -101,7 +101,9 @@ const CitiesPage = () => {
 
 const [cities, setCities] = useState(citiesData);
 
-const oddCitiesClass = citiesData.length % 2 !== 0 ? ' odd-cities' : '';
+const oddCitiesClass = cities.length % 2 !== 0 ? ' odd-cities' : '';
+
+console.log(cities.length)
 
   return (
 <Container>
