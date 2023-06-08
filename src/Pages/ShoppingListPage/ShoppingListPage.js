@@ -41,10 +41,21 @@ const ShoppingListPage = () => {
 
     const newItemHandler = (event) => {
         event.preventDefault();
+        
+        setList(prevState => {
+            const itemToAdd = 
+            {
+                title: newItem,
+                done: false,
+            }
+            const newState = [itemToAdd, ...prevState];
+            return newState;
+        })
         setNewItem('');
     }
 
     const itemInputHandler = (event) => setNewItem(event.target.value);
+    // console.log(newItem)
 
 
   return (
