@@ -1,5 +1,5 @@
 
-const CityItem = ({city}) => {
+const CityItem = ({city, index}) => {
     let {name, population, location, touristAttractions, isCapital} = city;
     let title = name;
     let capitalText = '';
@@ -15,9 +15,9 @@ const CityItem = ({city}) => {
 console.log(touristAttractions.length)
 
     if (touristAttractions.length == 1) {
-      touristAttractionText = 'Main Tourist attraction of ' + {name} + ' is:'
+      touristAttractionText = 'Main Tourist attraction of ' + name + ' is:'
     } else if (touristAttractions.length > 1) {
-      touristAttractionText = 'Main Tourist attractions of ' + {name} + ' are:'
+      touristAttractionText = 'Main Tourist attractions of ' + name + ' are:'
     } else {
       touristAttractionText = '';
     }
@@ -26,10 +26,15 @@ console.log(touristAttractions.length)
   return (
 <div>
     <h2 className={capitalClass}>{title}</h2>
-    <p>{name} is located in {location.continent} and has population of {population} people.</p>
+    <p>{name} is located in {location.continent}, {location.country} and has population of {population} people.</p>
     <span>{capitalText}</span>
-    <h3>Main Tourist attraction of {name} is:</h3>
-    
+    <h3>{touristAttractionText}</h3>
+    <ul>
+      {touristAttractions.map((attraction) => {
+        console.log(attraction)
+        return <li key={index}>{attraction}</li>
+      })}
+    </ul>
 </div>
   )
 }
