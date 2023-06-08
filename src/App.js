@@ -5,7 +5,7 @@ import Programos from './Pages/Programos/Programos';
 import NewsPage from './Pages/NewsPage/NewsPage';
 import CounterPage from './Pages/CounterPage/CounterPage';
 import ShoppingListPage from './Pages/ShoppingListPage/ShoppingListPage';
-
+import CitiesPage from './Pages/CitiesPage/CitiesPage';
 
 function App() {
   return (
@@ -36,6 +36,10 @@ function App() {
           <li className='nav-item'>
             <NavLink to='/ShoppingListPage' className='nav-link'>Shopping-List</NavLink>
           </li>
+
+          <li className='nav-item'>
+            <NavLink to='/CitiesPage' className='nav-link'>Cities</NavLink>
+          </li>
         </ul>
       </nav>
       
@@ -45,6 +49,7 @@ function App() {
             <Route path='/NewsPage' element={<NewsPage />} />
             <Route path='/CounterPage' element={<CounterPage />} />
             <Route path='/ShoppingListPage' element={<ShoppingListPage />} />
+            <Route path='/CitiesPage' element={<CitiesPage />} />
             <Route path='/' element={ 
               <div>
                 <h1>HomePage</h1>
