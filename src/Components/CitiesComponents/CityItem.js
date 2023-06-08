@@ -1,5 +1,6 @@
 
-const CityItem = ({city, index}) => {
+
+const CityItem = ({city}) => {
     let {name, population, location, touristAttractions, isCapital} = city;
     let title = name;
     let capitalText = '';
@@ -12,9 +13,7 @@ const CityItem = ({city, index}) => {
       capitalClass = 'capital'
     }
 
-console.log(touristAttractions.length)
-
-    if (touristAttractions.length == 1) {
+    if (touristAttractions.length === 1) {
       touristAttractionText = 'Main Tourist attraction of ' + name + ' is:'
     } else if (touristAttractions.length > 1) {
       touristAttractionText = 'Main Tourist attractions of ' + name + ' are:'
@@ -22,31 +21,24 @@ console.log(touristAttractions.length)
       touristAttractionText = '';
     }
 
-
   return (
-<div>
-    <h2 className={capitalClass}>{title}</h2>
-    <p>{name} is located in {location.continent}, {location.country} and has population of {population} people.</p>
-    <span>{capitalText}</span>
-    <h3>{touristAttractionText}</h3>
-    <ul>
-      {touristAttractions.map((attraction) => {
-        console.log(attraction)
-        return <li key={index}>{attraction}</li>
-      })}
-    </ul>
-</div>
+      <div className="cities-item">
+        <h2 className={capitalClass}>{title}</h2>
+        <p>{name} is located in {location.continent}, {location.country} and has population of {population} people.</p>
+        <span>{capitalText}</span>
+        <h3>{touristAttractionText}</h3>
+        <ul>
+          {touristAttractions.map((attraction, index) => {
+            return <li key={index}>{attraction}</li>
+          })}
+        </ul>
+    </div>
+
+
   )
 }
 
 export default CityItem
 
-        // console.log(city)
-        // console.log(city.name)
-        // console.log(city.population)
-        // console.log(city.location.continent)
-        // console.log(city.location.country)
-        // console.log(city.touristAttractions)
-        // console.log(city.isCapital)
 
 

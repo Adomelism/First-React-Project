@@ -1,4 +1,5 @@
 import './CitiesPage.css';
+import { useState } from 'react';
 import CityItem from '../../Components/CitiesComponents/CityItem';
 import Container from '../../Components/Container/Container';
 
@@ -98,15 +99,17 @@ const CitiesPage = () => {
 
     ];
 
+const [cities, setCities] = useState(citiesData);
 
+const oddCitiesClass = citiesData.length % 2 !== 0 ? ' odd-cities' : '';
 
   return (
 <Container>
-
-{citiesData.map((city, index) => {
+    <div className={'cities-list' + oddCitiesClass}>
+    {cities.map((city, index) => {
         return <CityItem key={index} city={city} />
     })}
-
+    </div>
 </Container>  
 )
 }
