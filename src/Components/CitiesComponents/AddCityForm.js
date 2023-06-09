@@ -1,42 +1,49 @@
-import { useState } from "react"
+// import { useState } from "react"
 
-const AddCityForm = () => {
-
-
-const [input, setInput] = useState('')
-
-const inputChangeHandler = (event) => {
-    const newValue = event.target.value;
-    console.log(event.target.value)
-    setInput(prevState => {
-        const newState = [newValue, ...prevState]
-    })
-}
-
-  return (
-    <form>
-        <label htmlFor="city">City: </label>
-        <input type="text" id="city" name="city" value={input} onChange={() => inputChangeHandler}></input>
-        <label htmlFor="isCapital"> Is city a capital of this country? </label>
-        <input type="checkbox" id="isCapital" name="isCapital" checked={true}></input>
-        <label htmlFor="population"> Population: </label>
-        <input type="number" id="population" name="population" value={input} onChange={() => inputChangeHandler}></input>
-        <label htmlFor="population"> Population: </label>
-        <input type="number" id="population" name="population" value={input} onChange={() => inputChangeHandler}></input>
-        <label htmlFor="continent"> Continent: </label>
-        <input type="text" id="continent" name="continent" value={input} onChange={() => inputChangeHandler}></input>
-        <label htmlFor="country"> Country: </label>
-        <input type="text" id="country" name="country" value={input} onChange={() => inputChangeHandler}></input>
-        <label htmlFor="touristAttractions"> Tourist Atrractions: </label>
-        <input type="text" id="touristAttractions" name="touristAttractions" value={input} onChange={() => inputChangeHandler}></input>
+// const AddCityForm = () => {
 
 
-        <label htmlFor="submitForm"></label>
-        <button type="submit" id="submitForm">Add City</button>
+// const [cityName, setcityName] = useState('')
+// const [isCapital, setIsCapital] = useState(false)
+// const [population, setPopulation] = useState('')
+// const [continent, setContinent] = useState('')
+// const [country, setCountry] = useState('')
+// const [touristAttractions, setTouristAttractions] = useState('')
 
 
-    </form>
-  )
-}
 
-export default AddCityForm
+//   return (
+//     <form>
+//         <div>
+//             <label htmlFor="city">City: </label>
+//             <input type="text" id="city" name="city" value={cityName} onChange={(event) => setcityName(event.target.value)}></input>
+//         </div>
+//         <div>
+//             <label htmlFor="isCapital"> Is capital: </label>
+//             <input type="checkbox" id="isCapital" name="isCapital" checked={(isCapital)} onChange={(event) => setIsCapital(event.target.checked)}></input>
+//         </div>
+//         <div>
+//             <label htmlFor="population"> Population: </label>
+//             <input type="number" id="population" name="population" value={population} onChange={(event) => setPopulation(event.target.value)}></input>
+//         </div>
+//         <div>
+//             <label htmlFor="continent"> Continent: </label>
+//             <input type="text" id="continent" name="continent" value={continent} onChange={(event) => setContinent(event.target.value)}></input>
+//         </div>
+//         <div>
+//             <label htmlFor="country"> Country: </label>
+//             <input type="text" id="country" name="country" value={country} onChange={(event) => setCountry(event.target.value)}></input>
+//         </div>
+//         <div>
+//             <label htmlFor="touristAttractions"> Tourist Atrractions: </label>
+//             <input type="textarea" id="touristAttractions" name="touristAttractions" value={touristAttractions} onChange={(event) => setTouristAttractions(event.target.value)}></input>
+//         </div>
+//         <div>
+//             <label htmlFor="submitForm"></label>
+//             <button type="submit" id="submitForm">Add City</button>
+//         </div>
+//     </form>
+//   )
+// }
+
+// export default AddCityForm
