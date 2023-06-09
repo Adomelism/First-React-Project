@@ -1,7 +1,7 @@
 import './CitiesPage.css';
 import { useState } from 'react';
-import CityItem from '../../Components/CitiesComponents/CityItem';
 import Container from '../../Components/Container/Container';
+import CitiesList from '../../Components/CitiesComponents/CitiesList';
 
 const CitiesPage = () => {
 
@@ -101,7 +101,6 @@ const CitiesPage = () => {
 
 const [cities, setCities] = useState(citiesData);
 
-const oddCitiesClass = cities.length % 2 !== 0 ? ' odd-cities' : '';
 
 
 const [cityName, setcityName] = useState('')
@@ -169,11 +168,8 @@ const addCityHandler = (event) => {
    
 
 
-    <div className={'cities-list' + oddCitiesClass}>
-    {cities.map((city, index) => {
-        return <CityItem key={index} city={city} />
-    })}
-    </div>
+    <CitiesList cities={cities}/>
+    
 </Container>  
 )
 }
