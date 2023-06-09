@@ -125,6 +125,13 @@ const addCityHandler = (event) => {
         }
 
     setCities(prevState => [newCity, ...prevState]);
+    setcityName('')
+    setIsCapital(false)
+    setPopulation('')
+    setContinent('')
+    setCountry('')
+    setTouristAttractions('')
+
 }
   return (
 <Container>
