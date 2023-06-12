@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 const ToDoForm = ({onNewTask}) => {
 
     let [name, setName] = useState('')
@@ -23,6 +24,7 @@ const ToDoForm = ({onNewTask}) => {
             isDone,
             dueDate,
         }
+
 
         onNewTask(newItem);
     }
