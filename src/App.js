@@ -6,6 +6,7 @@ import NewsPage from './Pages/NewsPage/NewsPage';
 import CounterPage from './Pages/CounterPage/CounterPage';
 import ShoppingListPage from './Pages/ShoppingListPage/ShoppingListPage';
 import CitiesPage from './Pages/CitiesPage/CitiesPage';
+import ToDoPage from './Pages/ToDoPage/ToDoPage';
 
 function App() {
   return (
@@ -40,6 +41,10 @@ function App() {
           <li className='nav-item'>
             <NavLink to='/CitiesPage' className='nav-link'>Cities</NavLink>
           </li>
+
+          <li className='nav-item'>
+            <NavLink to='/ToDoPage' className='nav-link'>To-Do-Page</NavLink>
+          </li>
         </ul>
       </nav>
       
@@ -50,6 +55,7 @@ function App() {
             <Route path='/CounterPage' element={<CounterPage />} />
             <Route path='/ShoppingListPage' element={<ShoppingListPage />} />
             <Route path='/CitiesPage' element={<CitiesPage />} />
+            <Route path='/ToDoPage' element={<ToDoPage />} />
             <Route path='/' element={ 
               <div>
                 <h1>HomePage</h1>
