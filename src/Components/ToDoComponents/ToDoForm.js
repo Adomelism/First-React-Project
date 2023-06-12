@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ToDoForm = () => {
+const ToDoForm = ({onNewTask}) => {
 
     let [name, setName] = useState('')
     let [description, setDescription] = useState('')
@@ -12,10 +12,23 @@ const ToDoForm = () => {
     const isDoneHandler = (event) => setIsDone(event.target.checked)
     const dueDateHandler = (event) => setDueDate(event.target.value)
 
-    // const addNewTaskHandler = 
+
+    const onTaskHandler = (event) => {
+        event.preventDefault();
+
+        const newItem = 
+        {
+            taskName: name,
+            description,
+            isDone,
+            dueDate,
+        }
+
+        onNewTask(newItem);
+    }
 
   return (
-    <form>
+    <form onSubmit={onTaskHandler}>
     <div>
         <label htmlFor="TaskName">Task Name: </label>
         <input type="text" id="TaskName" name="TaskName" value={name} onChange={nameHandler}></input>
