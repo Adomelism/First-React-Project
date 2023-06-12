@@ -3,7 +3,7 @@ const ToDoForm = () => {
   return (
     <form>
     <div>
-        <label htmlFor="TaskName">To Do Task: </label>
+        <label htmlFor="TaskName">Task Name: </label>
         <input type="text" id="TaskName" name="TaskName"></input>
     </div>
     <div>

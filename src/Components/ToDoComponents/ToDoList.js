@@ -1,3 +1,4 @@
+import ToDoItem from "./ToDoItem"
 
 const ToDoList = () => {
 
@@ -24,25 +25,8 @@ const ToDoList = () => {
 
   return (
     <div>
-        {tasksList.map((task) => {
-        let isItDone = '';
-        let {taskName, description, isDone, dueDate} = task;
-
-        console.log(taskName)
-        console.log(description)
-        console.log(isDone)
-        console.log(dueDate)
-
-         if (isDone) {
-        isItDone = 'Task was completed.'
-    } else {
-        isItDone = 'Task is not yet completed.'
-    }
-    return <div>
-                <h3>{taskName}</h3>
-                <h4>You need to {description} by {dueDate}</h4>
-                <h5>{isItDone}</h5>
-            </div>
+        {tasksList.map((task, index) => {
+        return <ToDoItem task={task} key={index}></ToDoItem>
     })}
     </div>
    
