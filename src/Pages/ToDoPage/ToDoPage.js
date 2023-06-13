@@ -41,6 +41,8 @@ const ToDoPage = () => {
 
         const index = tasks.findIndex(item => item.id === id)
 
+        console.log(index)
+
         setTasks(prevState => {
             let newState = [...prevState]
             newState[index] = {...newState[index], isDone: !newState[index].isDone}
