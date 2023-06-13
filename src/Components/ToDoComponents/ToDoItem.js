@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-const ToDoItem = ({task, onDoneTask}) => {
+const ToDoItem = ({task, onDoneTask, onRemoveTask}) => {
   let {taskName, description, isDone, dueDate, date, id} = task;
   
   let isItDone = '';
@@ -16,6 +16,10 @@ const ToDoItem = ({task, onDoneTask}) => {
 
     const completionStatusHandler = () => {
       onDoneTask(id);
+    }
+
+    const removalHandler = () => {
+      onRemoveTask(id)
     }
 
     var relativeTime = require('dayjs/plugin/relativeTime')
@@ -35,6 +39,7 @@ const ToDoItem = ({task, onDoneTask}) => {
             <input type='checkbox' id='toggleCompletion' name='toggleCompletion' checked={doneTag} onChange={completionStatusHandler}></input>
           </form>
         </div>
+        <button onClick={removalHandler}>Remove Task</button>
     </div>
   )
 }

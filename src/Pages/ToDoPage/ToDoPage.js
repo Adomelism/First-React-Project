@@ -37,27 +37,32 @@ const ToDoPage = () => {
     const [tasks, setTasks] = useState(tasksList)
 
     const completionHandler = (id) => {
-        console.log(id)
-
         const index = tasks.findIndex(item => item.id === id)
-
-        console.log(index)
-
+    
         setTasks(prevState => {
             let newState = [...prevState]
             newState[index] = {...newState[index], isDone: !newState[index].isDone}
             return newState;
-    })
-}
+        })
+    }
 
     const addNewTaskHandler = (task) => {
         setTasks(prevState => [task, ...prevState])
+    }
+
+    const removeTaskHandler = (id) => {
+
+        setTasks(prevState => {
+            let newState = prevState.filter(setTask => setTask.id !== id);
+            return newState;
+        })
+
     }
     
   return (
     <div>
         <Container>
-            <ToDoList data={tasks} onDoneTask={completionHandler}/>
+            <ToDoList data={tasks} onDoneTask={completionHandler} onRemoveTask={removeTaskHandler}/>
             <ToDoForm onNewTask={addNewTaskHandler}/>
         </Container> 
     </div>
