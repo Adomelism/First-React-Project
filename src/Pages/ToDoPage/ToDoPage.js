@@ -12,6 +12,7 @@ const ToDoPage = () => {
             isDone: false,
             dueDate: '06-30-2023',
             date: '06-13-2023',
+            id: Math.random(),
         },
         {
             taskName: 'car wash',
@@ -19,6 +20,7 @@ const ToDoPage = () => {
             isDone: true,
             dueDate: '06-30-2023',
             date: '06-13-2023',
+            id: Math.random(),
         },
         {
             taskName: 'shopping',
@@ -26,14 +28,25 @@ const ToDoPage = () => {
             isDone: false,
             dueDate: '06-30-2023',
             date: '06-13-2023',
+            id: Math.random(),
         }
     ]
-
-    // 4. Pridėti galimybę pažymėti užduotį kaip atliktą.
     // 5. Pridėti galimybę ištrinti užduotį.
     // 6. Pridėti galimybę redaguoti užduotį.
-    
+
     const [tasks, setTasks] = useState(tasksList)
+
+    const completionHandler = (id) => {
+        console.log(id)
+
+        const index = tasks.findIndex(item => item.id === id)
+
+        setTasks(prevState => {
+            let newState = [...prevState]
+            newState[index] = {...newState[index], isDone: !newState[index].isDone}
+            return newState;
+    })
+}
 
     const addNewTaskHandler = (task) => {
         setTasks(prevState => [task, ...prevState])
@@ -42,7 +55,7 @@ const ToDoPage = () => {
   return (
     <div>
         <Container>
-            <ToDoList data={tasks}/>
+            <ToDoList data={tasks} onDoneTask={completionHandler}/>
             <ToDoForm onNewTask={addNewTaskHandler}/>
         </Container> 
     </div>
