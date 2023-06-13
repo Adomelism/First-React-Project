@@ -9,7 +9,6 @@ const ToDoForm = ({onNewTask}) => {
 
     const nameHandler = (event) => setName(event.target.value)
     const descriptionHandler = (event) => setDescription(event.target.value)
-    // const isDoneHandler = (event) => setIsDone(event.target.checked)
     const dueDateHandler = (event) => setDueDate(event.target.value)
 
     const onTaskHandler = (event) => {
@@ -25,9 +24,8 @@ const ToDoForm = ({onNewTask}) => {
             isDone,
             dueDate,
             date: fullDate,
+            id: Math.random(),
         }
-
-
         onNewTask(newItem);
     }
 
@@ -41,10 +39,6 @@ const ToDoForm = ({onNewTask}) => {
         <label htmlFor="TaskDescription">Task Description: </label>
         <textarea id="TaskDescription" name="TaskDescription" value={description} onChange={descriptionHandler} />
     </div>
-    {/* <div>
-        <label htmlFor="isTaskDone">Task Done: </label>
-        <input type="checkbox" id="isTaskDone" name="isTaskDone" checked={isDone} onChange={isDoneHandler}/>
-    </div> */}
     <div>
         <label htmlFor="taskDueDate">Task Due Date: </label>
         <input type="date" id="taskDueDate" name="taskDueDate" value={dueDate} onChange={dueDateHandler}/>
