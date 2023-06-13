@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 const ToDoItem = ({task}) => {
     let isItDone = '';
 
-    let {taskName, description, isDone, dueDate} = task;
+    let {taskName, description, isDone, dueDate, date} = task;
    
     if (isDone) {
         isItDone = 'Task was completed.'
@@ -13,7 +13,6 @@ const ToDoItem = ({task}) => {
 
     var relativeTime = require('dayjs/plugin/relativeTime')
     dayjs.extend(relativeTime)
-    const taskCreationDate = dayjs().fromNow();
     const untilDeadline = dayjs().to(dayjs(dueDate));
 
   return (
@@ -22,7 +21,7 @@ const ToDoItem = ({task}) => {
         <h4>You need to {description} by {dueDate}</h4>
         <div>Task needs to be completed {untilDeadline}.</div>
         <h5>{isItDone}</h5>
-        <div>Task was created {taskCreationDate}.</div>
+        <div>Task was created {date}.</div>
     </div>
   )
 }
