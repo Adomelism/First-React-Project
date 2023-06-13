@@ -10,21 +10,28 @@ const ToDoPage = () => {
             taskName: 'laundry',
             description: 'make your parents proud',
             isDone: false,
-            dueDate: '06-13-2023',
+            dueDate: '06-30-2023',
+            date: '06-13-2023',
         },
         {
             taskName: 'car wash',
             description: 'bathtime for your vehicle',
             isDone: true,
-            dueDate: '06-14-2023',
+            dueDate: '06-30-2023',
+            date: '06-13-2023',
         },
         {
             taskName: 'shopping',
             description: 'buy lasagna ingredients',
             isDone: false,
-            dueDate: '06-15-2023',
+            dueDate: '06-30-2023',
+            date: '06-13-2023',
         }
     ]
+
+    // 4. Pridėti galimybę pažymėti užduotį kaip atliktą.
+    // 5. Pridėti galimybę ištrinti užduotį.
+    // 6. Pridėti galimybę redaguoti užduotį.
     
     const [tasks, setTasks] = useState(tasksList)
 

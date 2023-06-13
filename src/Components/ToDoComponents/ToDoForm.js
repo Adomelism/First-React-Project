@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 const ToDoForm = ({onNewTask}) => {
 
     let [name, setName] = useState('')
@@ -12,7 +11,6 @@ const ToDoForm = ({onNewTask}) => {
     const descriptionHandler = (event) => setDescription(event.target.value)
     const isDoneHandler = (event) => setIsDone(event.target.checked)
     const dueDateHandler = (event) => setDueDate(event.target.value)
-
 
     const onTaskHandler = (event) => {
         event.preventDefault();
