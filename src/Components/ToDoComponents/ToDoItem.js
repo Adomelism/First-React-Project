@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 
 const ToDoItem = ({task, onDoneTask, onRemoveTask, onEditTask}) => {
-  let {taskName, description, isDone, dueDate, date, id} = task;
+  let {taskName, description, isDone, dueDate, date, id, updatedDate} = task;
   
   let isItDone = '';
   let doneTag = false;
@@ -26,11 +26,12 @@ const ToDoItem = ({task, onDoneTask, onRemoveTask, onEditTask}) => {
     dayjs.extend(relativeTime)
     const untilDeadline = dayjs().to(dayjs(dueDate));
 
+
   return (
     <div>
         <h3>{taskName}</h3>
         <h4>You need to {description} by {dueDate}</h4>
-        <div>Task was created {date}.</div>
+        <div>Task was created on {date}. {updatedDate ? `(updated on ${updatedDate})` : ''}</div>
         <div>Task needs to be completed {untilDeadline}.</div>
         <div>
           <h5>{isItDone}</h5>

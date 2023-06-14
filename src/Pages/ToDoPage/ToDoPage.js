@@ -2,6 +2,8 @@ import ToDoForm from "../../Components/ToDoComponents/ToDoForm";
 import ToDoList from "../../Components/ToDoComponents/ToDoList";
 import Container from "../../Components/Container/Container";
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
+
 
 const ToDoPage = () => {
     
@@ -12,7 +14,8 @@ const ToDoPage = () => {
             isDone: false,
             dueDate: '2023-06-30',
             date: '2023-06-13',
-            id: Math.random(),
+            id: uuidv4(),
+            updatedDate: null,
         },
         {
             taskName: 'car wash',
@@ -20,7 +23,8 @@ const ToDoPage = () => {
             isDone: true,
             dueDate: '2023-06-30',
             date: '2023-06-13',
-            id: Math.random(),
+            id: uuidv4(),
+            updatedDate: null,
         },
         {
             taskName: 'shopping',
@@ -28,7 +32,8 @@ const ToDoPage = () => {
             isDone: false,
             dueDate: '2023-06-30',
             date: '2023-06-13',
-            id: Math.random(),
+            id: uuidv4(),
+            updatedDate: null,
         }
     ]
 
