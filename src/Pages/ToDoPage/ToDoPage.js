@@ -1,7 +1,7 @@
 import ToDoForm from "../../Components/ToDoComponents/ToDoForm";
 import ToDoList from "../../Components/ToDoComponents/ToDoList";
 import Container from "../../Components/Container/Container";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ToDoPage = () => {
     
@@ -45,7 +45,7 @@ const ToDoPage = () => {
         })
     }
 
-    const addNewTaskHandler = (task, id) => {
+    const addNewTaskHandler = (task) => {
         if (editToDo) {
             const index = tasks.findIndex(item => item.id === task.id)
             setTasks(prevState => {
@@ -69,7 +69,7 @@ const ToDoPage = () => {
     }
 
     const editTaskHandler = (idToEdit) => {
-        let editTask = tasks.find(task => task.id == idToEdit)
+        let editTask = tasks.find(task => task.id === idToEdit)
 
         setEditToDo(editTask)
     }
