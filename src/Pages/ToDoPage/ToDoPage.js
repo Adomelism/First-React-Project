@@ -45,9 +45,16 @@ const ToDoPage = () => {
         })
     }
 
-    const addNewTaskHandler = (task) => {
+    const addNewTaskHandler = (task, id) => {
         if (editToDo) {
+            const index = tasks.findIndex(item => item.id === task.id)
+            setTasks(prevState => {
+                const newState = [...prevState];
+                newState.splice(index, 1, task)
 
+                return newState;
+            })
+            setEditToDo(null)
         } else {
             setTasks(prevState => [task, ...prevState])
         }
