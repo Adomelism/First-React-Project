@@ -1,7 +1,7 @@
 import ToDoForm from "../../Components/ToDoComponents/ToDoForm";
 import ToDoList from "../../Components/ToDoComponents/ToDoList";
 import Container from "../../Components/Container/Container";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ToDoPage = () => {
     
@@ -10,31 +10,30 @@ const ToDoPage = () => {
             taskName: 'laundry',
             description: 'make your parents proud',
             isDone: false,
-            dueDate: '06-30-2023',
-            date: '06-13-2023',
+            dueDate: '2023-06-30',
+            date: '2023-06-13',
             id: Math.random(),
         },
         {
             taskName: 'car wash',
             description: 'bathtime for your vehicle',
             isDone: true,
-            dueDate: '06-30-2023',
-            date: '06-13-2023',
+            dueDate: '2023-06-30',
+            date: '2023-06-13',
             id: Math.random(),
         },
         {
             taskName: 'shopping',
             description: 'buy lasagna ingredients',
             isDone: false,
-            dueDate: '06-30-2023',
-            date: '06-13-2023',
+            dueDate: '2023-06-30',
+            date: '2023-06-13',
             id: Math.random(),
         }
     ]
-    // 5. Pridėti galimybę ištrinti užduotį.
-    // 6. Pridėti galimybę redaguoti užduotį.
 
     const [tasks, setTasks] = useState(tasksList)
+    const [editToDo, setEditToDo] = useState(null)
 
     const completionHandler = (id) => {
         const index = tasks.findIndex(item => item.id === id)
@@ -47,7 +46,11 @@ const ToDoPage = () => {
     }
 
     const addNewTaskHandler = (task) => {
-        setTasks(prevState => [task, ...prevState])
+        if (editToDo) {
+
+        } else {
+            setTasks(prevState => [task, ...prevState])
+        }
     }
 
     const removeTaskHandler = (id) => {
@@ -56,14 +59,19 @@ const ToDoPage = () => {
             let newState = prevState.filter(setTask => setTask.id !== id);
             return newState;
         })
+    }
 
+    const editTaskHandler = (idToEdit) => {
+        let editTask = tasks.find(task => task.id == idToEdit)
+
+        setEditToDo(editTask)
     }
     
   return (
     <div>
         <Container>
-            <ToDoList data={tasks} onDoneTask={completionHandler} onRemoveTask={removeTaskHandler}/>
-            <ToDoForm onNewTask={addNewTaskHandler}/>
+            <ToDoForm onNewTask={addNewTaskHandler} editToDoData={editToDo}/>
+            <ToDoList data={tasks} onDoneTask={completionHandler} onRemoveTask={removeTaskHandler} onEditTask={editTaskHandler}/>
         </Container> 
     </div>
    

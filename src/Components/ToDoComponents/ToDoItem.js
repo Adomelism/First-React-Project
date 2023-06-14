@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-const ToDoItem = ({task, onDoneTask, onRemoveTask}) => {
+const ToDoItem = ({task, onDoneTask, onRemoveTask, onEditTask}) => {
   let {taskName, description, isDone, dueDate, date, id} = task;
   
   let isItDone = '';
@@ -40,6 +40,7 @@ const ToDoItem = ({task, onDoneTask, onRemoveTask}) => {
           </form>
         </div>
         <button onClick={removalHandler}>Remove Task</button>
+        <button onClick={() => onEditTask(id)}>Edit Task</button>
     </div>
   )
 }

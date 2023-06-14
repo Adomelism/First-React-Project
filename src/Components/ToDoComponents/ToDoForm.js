@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const ToDoForm = ({onNewTask}) => {
-
+const ToDoForm = ({onNewTask, editToDoData}) => {
     let [name, setName] = useState('')
     let [description, setDescription] = useState('')
     let [isDone, setIsDone] = useState(false)
     let [dueDate, setDueDate] = useState('')
+
+    useEffect(() => {
+        if (editToDoData) {
+            setName(editToDoData.taskName)
+            setDescription(editToDoData.description)
+            setDueDate(editToDoData.dueDate)
+        }
+    }, [editToDoData])
 
     const nameHandler = (event) => setName(event.target.value)
     const descriptionHandler = (event) => setDescription(event.target.value)
@@ -16,8 +23,21 @@ const ToDoForm = ({onNewTask}) => {
 
         const date = new Date();
         const fullDate = date.toISOString().slice(0, 10);
+        let newItem = {};
 
-        const newItem = 
+        if (editToDoData) {
+            newItem = 
+        {
+            taskName: name,
+            description,
+            isDone: editToDoData.isDone,
+            dueDate,
+            date: fullDate,
+            id: editToDoData.id,
+            edited: fullDate,
+        }
+        } else {
+            newItem = 
         {
             taskName: name,
             description,
@@ -26,7 +46,13 @@ const ToDoForm = ({onNewTask}) => {
             date: fullDate,
             id: Math.random(),
         }
+        }
+        
         onNewTask(newItem);
+        setName('');
+        setDescription('');
+        setDueDate('');
+
     }
 
   return (
@@ -44,7 +70,7 @@ const ToDoForm = ({onNewTask}) => {
         <input type="date" id="taskDueDate" name="taskDueDate" value={dueDate} onChange={dueDateHandler}/>
     </div>
     <div>
-        <button type="submit" id="submit" name="submit">Create Task</button>
+        <button type="submit" id="submit" name="submit">{editToDoData ? 'Edit Task' : 'Create Task'}</button>
     </div>
 </form>
   )
