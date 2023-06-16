@@ -7,6 +7,8 @@ import CounterPage from './Pages/CounterPage/CounterPage';
 import ShoppingListPage from './Pages/ShoppingListPage/ShoppingListPage';
 import CitiesPage from './Pages/CitiesPage/CitiesPage';
 import ToDoPage from './Pages/ToDoPage/ToDoPage';
+import ChuckNorrisPage from './Pages/ChuckNorrisPage/ChuckNorrisPage';
+
 
 function App() {
   return (
@@ -45,6 +47,10 @@ function App() {
           <li className='nav-item'>
             <NavLink to='/ToDoPage' className='nav-link'>To-Do-Page</NavLink>
           </li>
+
+          <li className='nav-item'>
+            <NavLink to='/ChuckNorrisPage' className='nav-link'>Chuck Norris Page</NavLink>
+          </li>
         </ul>
       </nav>
       
@@ -56,6 +62,7 @@ function App() {
             <Route path='/ShoppingListPage' element={<ShoppingListPage />} />
             <Route path='/CitiesPage' element={<CitiesPage />} />
             <Route path='/ToDoPage' element={<ToDoPage />} />
+            <Route path='/ChuckNorrisPage' element={<ChuckNorrisPage />} />
             <Route path='/' element={ 
               <div>
                 <h1>HomePage</h1>
