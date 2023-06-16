@@ -8,6 +8,7 @@ import ShoppingListPage from './Pages/ShoppingListPage/ShoppingListPage';
 import CitiesPage from './Pages/CitiesPage/CitiesPage';
 import ToDoPage from './Pages/ToDoPage/ToDoPage';
 import ChuckNorrisPage from './Pages/ChuckNorrisPage/ChuckNorrisPage';
+import DogsPage from './Pages/DogsPage/DogsPage';
 
 
 function App() {
@@ -49,7 +50,11 @@ function App() {
           </li>
 
           <li className='nav-item'>
-            <NavLink to='/ChuckNorrisPage' className='nav-link'>Chuck Norris Page</NavLink>
+            <NavLink to='/ChuckNorrisPage' className='nav-link'>Chuck Norris API</NavLink>
+          </li>
+
+          <li className='nav-item'>
+            <NavLink to='/DogsPage' className='nav-link'>Dogs API</NavLink>
           </li>
         </ul>
       </nav>
@@ -63,6 +68,7 @@ function App() {
             <Route path='/CitiesPage' element={<CitiesPage />} />
             <Route path='/ToDoPage' element={<ToDoPage />} />
             <Route path='/ChuckNorrisPage' element={<ChuckNorrisPage />} />
+            <Route path='/DogsPage' element={<DogsPage />} />
             <Route path='/' element={ 
               <div>
                 <h1>HomePage</h1>
