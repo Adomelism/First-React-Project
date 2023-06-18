@@ -9,6 +9,7 @@ import CitiesPage from './Pages/CitiesPage/CitiesPage';
 import ToDoPage from './Pages/ToDoPage/ToDoPage';
 import ChuckNorrisPage from './Pages/ChuckNorrisPage/ChuckNorrisPage';
 import DogsPage from './Pages/DogsPage/DogsPage';
+import AiPage from './Pages/AiPage/AiPage';
 
 
 function App() {
@@ -56,6 +57,10 @@ function App() {
           <li className='nav-item'>
             <NavLink to='/DogsPage' className='nav-link'>Dogs API</NavLink>
           </li>
+
+          <li className='nav-item'>
+            <NavLink to='/AiPage' className='nav-link'>AI</NavLink>
+          </li>
         </ul>
       </nav>
       
@@ -69,6 +74,7 @@ function App() {
             <Route path='/ToDoPage' element={<ToDoPage />} />
             <Route path='/ChuckNorrisPage' element={<ChuckNorrisPage />} />
             <Route path='/DogsPage' element={<DogsPage />} />
+            <Route path='/AiPage' element={<AiPage />} />
             <Route path='/' element={ 
               <div>
                 <h1>HomePage</h1>
