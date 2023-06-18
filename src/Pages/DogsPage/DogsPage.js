@@ -1,25 +1,23 @@
 import Container from '../../Components/Container/Container';
-import { useEffect } from 'react';
 import DogsForm from '../../Components/DogsComponents/DogsForm';
 import DogsImages from '../../Components/DogsComponents/DogsImages';
+import { useState } from 'react';
 
 const DogsPage = () => {
 
-    // 1. Sukurti formą, kuri leidžia pasirinkti šuns veislę ir grąžina atsitiktinę tos veislės nuotrauką.
-    // 2. Jeigu šuns veislė yra išvestinė (sub-breed), tai šalia ji turėtų būti atvaizduojama parašant pagrindinės veislės pavadinimą (breed) ir šalia išvestinės veislės pavainimą (sub-breed).
-    // viena kategorija
-    // antra kategorija
-    // Bulldog (French)
-    // Bulldog (English)
-    // Bulldog (Boston)
-    // ketvirta kategorija
 
+    const [selectedBreed, setSelectedBreed] = useState('')
+
+    const selectHandler = (breed) => {
+        setSelectedBreed(breed)
+        console.log(setSelectedBreed)
+    }
     
 
   return (
     <Container>
-        <DogsForm />
-        <DogsImages />
+        <DogsForm onBreedSelect={selectHandler} selectedBreed={selectedBreed}/>
+        <DogsImages breed={selectedBreed}/>
     </Container>
   )
 }

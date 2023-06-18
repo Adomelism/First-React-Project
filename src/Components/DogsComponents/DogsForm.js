@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
+import { v4 as uuid } from "uuid";
 
 
-const DogsForm = () => {
+const DogsForm = ({onBreedSelect, selectedBreed}) => {
 
-    const [breeds, setBreeds] = useState({});
+    const [breeds, setBreeds] = useState([]);
 
     useEffect(() => {
       fetch(' https://dog.ceo/api/breeds/list/all')
@@ -24,7 +25,7 @@ const DogsForm = () => {
             // console.log(breedObject)
 
             updatedArr.push(breedObject)
-            console.log(updatedArr)
+            // console.log(updatedArr)
         }
         
         setBreeds(updatedArr);
@@ -32,14 +33,29 @@ const DogsForm = () => {
       })
       
     }, [])
-    
+
+const breedsOptionElements = breeds.map(data => {
+    const mainBreed = data.mainBreed
+    const subBreeds = data.subBreeds
+
+    if (subBreeds.length > 0) {
+        const subBreedsOptionElements = subBreeds.map(subBreed => <option key={uuid()} value={`${mainBreed}/${subBreed}`}>{mainBreed} ({subBreed})</option>);
+        return  subBreedsOptionElements;
+    } else {
+        return <option key={uuid()} value={mainBreed}>{mainBreed}</option>
+    }
+
+}) 
+    if (breeds.length === 0) {
+        return '';
+    }
 
   return (
     <div>
         <form>
-            <select>
-                <option>pirma</option>
-                <option>antra</option>
+            <select value={selectedBreed} onChange={(e) => onBreedSelect(e.target.value)}>
+                <option value='' disabled>select a breed</option>
+                {breedsOptionElements}
             </select>
         </form>
     </div>
