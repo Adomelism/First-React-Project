@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const AiPage = () => {
 
-    const [information, setInformation] = useState(null);
+    const [personData, setPersonData] = useState(null);
 
     // const nameFormHandler = async name => {
     //     const ageRes = await fetch('https://api.agify.io?name=' + name)
@@ -23,7 +23,7 @@ const AiPage = () => {
     //     const gender = genderData.gender;
    
 
-    //     setInformation({name, age, gender, nationality});
+    //     setPersonData({name, age, gender, nationality});
     // }
 
     const nameFormHandler = async name => {
@@ -36,14 +36,14 @@ const AiPage = () => {
         const gender = genderRes.data.gender;
         const nationality = nationalityRes.data.country[0].country_id;
 
-        setInformation({name, age, gender, nationality});
+        setPersonData({name, age, gender, nationality});
 
     }
 
   return (
     <Container>
         <AiForm onNameSubmit={nameFormHandler}/>
-        <AiOutput data={information}/>
+        <AiOutput data={personData}/>
     </Container>
   )
 }
